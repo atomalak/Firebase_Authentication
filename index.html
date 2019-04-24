@@ -1,0 +1,202 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" />
+</head>
+
+
+
+<body class="container">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">TODO APP</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li class="active loggedin"><a href="#">Ana Sayfa</a></li>
+                <li class="loggedin"><a href="javascript:void(0);" onclick="openModal('profilmodal')">Profil</a></li>
+                <li class="logout"><a href="javascript:void(0)" onclick="openModal('openlogin')">Login</a></li>
+                <li class="logout"><a href="javascript:void(0)" onclick="openModal('opensignup')">Üye Ol</a></li>
+                <li class="loggedin"><a href="javascript:void(0);" onclick="openModal('todologin')">Todo Ekle</a></li>
+                <li class="loggedin"><a href="javascript:auth.signOut()">Çıkış</a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+
+    <button type="button" class="btn btn-info btn-lg opensignup" data-toggle="modal" data-target="#signupModal"
+        style="display:none">
+        Open Modal
+    </button>
+
+    <!--SIGNUP  Modal -->
+    <div id="signupModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Yeni Kayıt</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" class="form-control signupemail" />
+                    </div>
+                    <div class="form-group">
+                        <label>Şifre</label>
+                        <input type="password " class="form-control signuppassword" />
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-info signupbtn">Kaydet</button>
+                    <button type="button" class="btn btn-primary closemodal" data-dismiss="modal">Kapat</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="row form-group container">
+        <input type="text" class="form-control col-sm-3 adminemail"/>
+        <a class="btn btn-primary makeadmin">
+            Admin olarak ata
+        </a>
+
+    </div>
+
+    <ul class="list-group" id="todos-list">
+        <li class="list-group-item">Üye yada Login ol</li>
+    </ul>
+
+    <button type="button" class="btn btn-info btn-lg openlogin" data-toggle="modal" data-target="#loginmodal"
+        style="display:none">
+        Open Modal
+    </button>
+
+    <!--Login   Modal -->
+    <div id="loginmodal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Login</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" class="form-control loginemail" />
+                    </div>
+                    <div class="form-group">
+                        <label>Şifre</label>
+                        <input type="password" class="form-control loginpwd" />
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-info loginbtn">Giriş</button>
+                    <button type="button" class="btn btn-primary closemodal" data-dismiss="modal">Kapat</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <button type="button" class="btn btn-info btn-lg todologin" data-toggle="modal" data-target="#todomodal"
+        style="display:none">
+        Open Modal
+    </button>
+
+    <!--Login   Modal -->
+    <div id="todomodal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">TODO List Ekle</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>Todo Item</label>
+                        <input type="Text" class="form-control item" />
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-info todosave">Kaydet</button>
+                    <button type="button" class="btn btn-primary closemodal" data-dismiss="modal">Kapat</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <button type="button" class="btn btn-info btn-lg profilmodal" data-toggle="modal" data-target="#profilmodal"
+        style="display:none">
+        Open Modal
+    </button>
+
+    <!--Profil   Modal -->
+    <div id="profilmodal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Profiliniz</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+
+                        <ul class="list-group" id="profil-info">
+
+                        </ul>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary closemodal" data-dismiss="modal">Kapat</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <script src="https://www.gstatic.com/firebasejs/5.10.0/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyBj873an2OkG6Kd2AL-nlrioQsyer0I5XM",
+            authDomain: "react-redux-7d3d4.firebaseapp.com",
+            databaseURL: "https://react-redux-7d3d4.firebaseio.com",
+            projectId: "react-redux-7d3d4",
+            storageBucket: "react-redux-7d3d4.appspot.com",
+            messagingSenderId: "291295785373"
+        };
+        firebase.initializeApp(config);
+        const auth = firebase.auth();
+        const db = firebase.firestore();
+        const functions=firebase.functions();
+    </script>
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+    <script src="script/authentication.js"></script>
+    <script src="script/index.js"></script>
+</body>
+
+</html>
